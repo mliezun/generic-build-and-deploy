@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # Install initial dependencies & tools
 RUN apt-get update && \
-    apt-get -qqy install git apt-transport-https ca-certificates nodejs npm openssh-client curl
+    apt-get -qqy install git apt-transport-https ca-certificates nodejs npm openssh-client curl rsync
 
 # Install yarn
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
