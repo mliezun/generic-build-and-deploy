@@ -10,9 +10,10 @@ RUN apt-get -qqy update && \
     apache2 composer php php-cli php-fpm php-json php-pdo php-mysql \ 
     php-zip php-gd php-mbstring php-curl php-xml php-pear php-bcmath \
     git apt-transport-https ca-certificates nodejs npm openssh-client \
-    curl lsb-core && \
+    curl lsb-core redis-server php-redis && \
     a2enmod proxy_fcgi setenvif && \
     a2enconf php7.4-fpm && \
+    phpenmod -v 7.4 -s ALL redis && \
     npm -g install n && \
     n 12
 
