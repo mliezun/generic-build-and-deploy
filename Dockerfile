@@ -27,7 +27,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     rm percona-release_latest.$(lsb_release -sc)_all.deb
 
 # Install node packages
-RUN npm -g install @quasar/cli cordova
+RUN npm -g install @quasar/cli cordova pm2 @vue/cli
 
 
 # Clear all caches
