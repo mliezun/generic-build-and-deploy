@@ -12,6 +12,7 @@ RUN apt-get -qqy update && \
     git apt-transport-https ca-certificates nodejs npm openssh-client \
     curl lsb-core redis-server php-redis python3 python3-pip python3-venv && \
     a2enmod proxy_fcgi setenvif && \
+    a2enmod rewrite && \
     a2enconf php7.4-fpm && \
     phpenmod -v 7.4 -s ALL redis && \
     npm -g install n && \
