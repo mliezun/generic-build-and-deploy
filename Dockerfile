@@ -11,7 +11,7 @@ RUN apt-get -qqy update && \
     php-zip php-gd php-mbstring php-curl php-xml php-pear php-bcmath \
     git apt-transport-https ca-certificates nodejs npm openssh-client \
     curl lsb-core redis-server php-redis python3 python3-pip python3-venv \
-    gcc clang clangd emscripten && \
+    gcc clang clangd && \
     a2enmod proxy_fcgi setenvif && \
     a2enmod rewrite && \
     a2enconf php7.4-fpm && \
@@ -30,6 +30,14 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 
 # Install node packages
 RUN npm -g install @quasar/cli cordova pm2 @vue/cli
+
+# Install emscripten
+RUN mkdir -p /opt/ && cd /opt/ && \
+    git clone https://github.com/emscripten-core/emsdk.git && \
+    cd emsdk && \
+    ./emsdk install latest && \
+    ./emsdk activate latest && \
+    echo 'source "/opt/emsdk/emsdk_env.sh"' >> $HOME/.profile
 
 
 # Clear all caches
