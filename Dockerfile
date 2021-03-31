@@ -37,7 +37,7 @@ RUN mkdir -p /opt/ && cd /opt/ && \
     cd emsdk && \
     ./emsdk install latest && \
     ./emsdk activate latest && \
-    echo 'source "/opt/emsdk/emsdk_env.sh"' >> $HOME/.profile
+    echo 'source "/opt/emsdk/emsdk_env.sh"' >> $HOME/.bashrc
 
 
 # Clear all caches
